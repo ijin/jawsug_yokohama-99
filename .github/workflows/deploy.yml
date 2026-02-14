@@ -2,12 +2,13 @@ name: Deploy Slides
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  pull-requests: write
 
 concurrency:
   group: pages
@@ -26,6 +27,8 @@ jobs:
             npx --yes @marp-team/marp-cli --html \
               "$f" -o "dist/${f%.md}.html"
           done
+          FIRST=$(ls dist/*.html | head -1)
+          cp "$FIRST" dist/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -42,3 +45,25 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Comment on merged PR
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+            });
+            for (const pr of prs) {
+              if (pr.state === 'closed' && pr.merged_at) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  body: `🚀 Deployed to ${process.env.PAGE_URL}`,
+                });
+              }
+            }

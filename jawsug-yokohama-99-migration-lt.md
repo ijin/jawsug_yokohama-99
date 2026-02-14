@@ -69,7 +69,7 @@ JAWS-UG Yokohama #99
 
 2026-02-14
 
-<span class="accent">#jawsugyokohama</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
+<span class="accent"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
 
 ---
 
@@ -242,7 +242,7 @@ AIが監査データから自動検出:
 
 # aidlc-cc-plugin
 
-**AI-DLCワークフローをClaude Code pluginとして作っていた**
+**AI-DLCワークフローをclaude code pluginとして実装**
 
 `github.com/ijin/aidlc-cc-plugin`
 
@@ -278,7 +278,7 @@ AIが監査データから自動検出:
 - **AI-DLCで設計フェーズを劇的に短縮**2-3ヶ月 → 数日間
 - **インフラ設計にも有効** — アプリ開発だけじゃない
 - **ワークフローの再現性** — aidlc-cc-plugin で誰でも実行可能
-- **リアルタイムコラボレーションが鍵** — 人間のレイテンシーがボトルネック。リアルタイム協働で真価発揮
+- **コラボレーションが鍵** — 人間のレイテンシーがボトルネック。リアルタイム協働で真価発揮
 
 ---
 

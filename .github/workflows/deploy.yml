@@ -21,9 +21,11 @@ jobs:
 
       - name: Build slides
         run: |
-          npx --yes @marp-team/marp-cli --html \
-            -o dist/ \
-            *.md
+          mkdir -p dist
+          for f in *.md; do
+            npx --yes @marp-team/marp-cli --html \
+              "$f" -o "dist/${f%.md}.html"
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

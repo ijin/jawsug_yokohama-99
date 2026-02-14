@@ -69,7 +69,7 @@ JAWS-UG Yokohama #99
 
 2026-02-14
 
-<span class="accent"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
+<span class="accent"></span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
 
 ---
 

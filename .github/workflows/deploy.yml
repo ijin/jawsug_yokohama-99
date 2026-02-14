@@ -23,7 +23,7 @@ jobs:
       - name: Build slides
         run: |
           mkdir -p dist
-          for f in *.md; do
+          for f in *-lt.md; do
             npx --yes @marp-team/marp-cli --html \
               "$f" -o "dist/${f%.md}.html"
           done

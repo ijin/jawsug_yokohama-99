@@ -69,7 +69,7 @@ JAWS-UG Yokohama #99
 
 2026-02-14
 
-<span class="accent">#jawsugyokohama</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
+<span class="accent">#jawsugyokohama</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;**@ijin** **@yoshidashingo**
 
 ---
 
@@ -163,9 +163,9 @@ AI-DLCのワークフローに沿って実施:
 **既存環境の自動分析 (70+ファイル)**
 
 - 膨大な既存ドキュメントを **Agent並列解析**
-- `aws` CLI × 9カテゴリで環境を網羅的に収集
+- `awscli` × 9カテゴリで環境を網羅的に収集
 - ドキュメント ⇔ CLI結果の **Cross Reference**
-  乖離を即座に発見
+- 乖離を即座に発見
 
 ---
 
@@ -246,7 +246,7 @@ AIが監査データから自動検出:
 
 `github.com/ijin/aidlc-cc-plugin`
 
-- `/aidlc` でワークフロー開始
+- /aidlc でワークフロー開始
 - Inception → Construction を自動駆動
 - セッション再開・監査証跡も自動
 - とても便利だった！
@@ -260,13 +260,13 @@ AIが監査データから自動検出:
  Account A                      DR Account (別Org)
 ┌───────────────────┐         ┌───────────────────┐
 │ VPC-1             │         │ DR-VPC-1          │
-│ 基幹系 (14 EC2)   │ Peering │ ALB/NLB (平時)    │
-│ RDS x4 (20TB)     │◄───────►│ KMS/IAM/SG (平時) │
+│ 基幹系 (14 EC2)    │ Peering │ ALB/NLB (平時)     │
+│ RDS x4 (20TB)     │◄───────►│ KMS/IAM/SG (平時)  │
 └───────────────────┘         └───────────────────┘
 ┌───────────────────┐  Daily  ┌───────────────────┐
 │ VPC-2             │ Backup  │ DR-VPC-2          │
-│ 店舗系 (39 EC2)   │  Copy   │ ALB x3 (平時)     │
-│ RDS x2 (13TB)     │ ======> │ Vault Lock (平時) │
+│ 店舗系 (39 EC2)    │  Copy   │ ALB x3 (平時)      │
+│ RDS x2 (13TB)     │ ======> │ Vault Lock (平時)  │
 │ FSx (20TB)        │ S3 CRR  │                   │
 └───────────────────┘  AMI    └───────────────────┘
 ```
@@ -275,7 +275,7 @@ AIが監査データから自動検出:
 
 # まとめ
 
-- **AI-DLCで設計フェーズを劇的に短縮** — 2-3ヶ月 → 数日間
+- **AI-DLCで設計フェーズを劇的に短縮**2-3ヶ月 → 数日間
 - **インフラ設計にも有効** — アプリ開発だけじゃない
 - **ワークフローの再現性** — aidlc-cc-plugin で誰でも実行可能
 - **リアルタイムコラボレーションが鍵** — 人間のレイテンシーがボトルネック。リアルタイム協働で真価発揮
